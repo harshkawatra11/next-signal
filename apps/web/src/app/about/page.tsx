@@ -102,6 +102,34 @@ export default function AboutPage() {
         <div className="mt-4">
           <DataTable columns={MODULE_COLUMNS} rows={SOURCE_MODULES} rowKey={(m) => m.module} dense />
         </div>
+
+        <h2 className="mt-12 font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-ink-3">
+          Research and data
+        </h2>
+        <div className="mt-4 space-y-2">
+          <a
+            href="https://harshkawatra11.github.io/next-signal/Next-Signal-Research-Note-CIPLA.pdf"
+            className="flex items-center justify-between border border-rule px-4 py-3 text-ink hover:bg-paper-2"
+          >
+            <span className="text-blue-700">Research paper (PDF)</span>
+            <span className="text-blue-700">&rarr;</span>
+          </a>
+          <a
+            href="https://harshkawatra11.github.io/next-signal/Next-Signal-Model-Workbook-CIPLA.xlsx"
+            download
+            className="flex items-center justify-between border border-rule px-4 py-3 text-ink hover:bg-paper-2"
+          >
+            <span className="text-blue-700">Model workbook (XLSX, downloads)</span>
+            <span className="text-blue-700">&rarr;</span>
+          </a>
+          <a
+            href="https://github.com/harshkawatra11/next-signal"
+            className="flex items-center justify-between border border-rule px-4 py-3 text-ink hover:bg-paper-2"
+          >
+            <span className="text-blue-700">Source code on GitHub</span>
+            <span className="text-blue-700">&rarr;</span>
+          </a>
+        </div>
       </main>
       <Footer />
     </>
