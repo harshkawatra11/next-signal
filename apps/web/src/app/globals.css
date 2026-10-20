@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Next Signal design tokens (PLAN.md §6.2): a red/white/black editorial "case file" look, square
+   corners throughout, hairline rules, Instrument Serif display + Inter Tight body + JetBrains Mono
+   for data. Every shadcn semantic token below is remapped onto these so shadcn components (button,
+   card, table, sheet, etc.) inherit this palette automatically, with no per-component overrides. */
+:root {
+  --paper: #FFFFFF;   --paper-2: #F6F5F3;  --paper-3: #EDEBE7;
+  --ink: #0B0B0C;     --ink-2: #3A3936;    --ink-3: #75716A;
+  --rule: #E2DFD9;    --rule-strong: #C9C5BD;
+  --signal: #C8102E;  --signal-deep: #7A0A1A; --signal-tint: #FBE3E6; --signal-2: #E23A50;
+  --ok: #0B0B0C;      --warn: #A9781F;
+
+  /* Heat ramp: paper to signal-deep, 5 steps. Used for "how anomalous/strong" scales (peer z-score
+     heatmaps, the ACH matrix, strength gauges). Not a hue rotation, a value ramp on the brand red,
+     so a heatmap reads as "more of the same accent", never a second unrelated palette. */
+  --heat-0: #F6F5F3; --heat-1: #F6D3D8; --heat-2: #E8899A; --heat-3: #C8102E; --heat-4: #7A0A1A;
+  /* Diverging ink ramp, for a negative-direction value on the same kind of scale. */
+  --ink-ramp-1: #EDEBE7; --ink-ramp-2: #C9C5BD; --ink-ramp-3: #75716A; --ink-ramp-4: #3A3936; --ink-ramp-5: #0B0B0C;
+  --chart-grid: var(--rule);
+  --chart-axis: var(--ink-3);
+
+  /* Type scale (size / line-height pairs). display/h1/h2 are serif (Instrument Serif); h3 is sans
+     semibold; lede/body/small are sans; kicker/label are mono. Tailwind v4 pairs a --font-size-* token
+     with a same-named --leading-* token in @theme inline below to produce one utility class per role
+     (e.g. text-display) that sets both size and line-height together. */
+  --text-display: 3.5rem;     --leading-display: 1.0714;   /* 56/60 */
+  --text-display-md: 4.5rem;  --leading-display-md: 1.0556; /* 72/76, apply via md:text-display-md */
+  --text-h1: 2.5rem;          --leading-h1: 1.1;            /* 40/44 */
+  --text-h2: 1.875rem;        --leading-h2: 1.1333;         /* 30/34 */
+  --text-h3: 1.125rem;        --leading-h3: 1.3333;         /* 18/24 */
+  --text-lede: 1.0625rem;     --leading-lede: 1.5882;       /* 17/27 */
+  --text-body: 0.9375rem;     --leading-body: 1.6;          /* 15/24 */
+  --text-small: 0.8125rem;    --leading-small: 1.5385;      /* 13/20 */
+  --text-kicker: 0.6875rem;   --leading-kicker: 1.4545;     /* 11px */
+  --text-label: 0.65625rem;   --leading-label: 1.4286;      /* 10.5px */
+
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-sans: "Inter Tight", -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --radius: 0px;
+
+  /* shadcn semantic tokens, remapped */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--signal);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-2);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-2);
+  --muted-foreground: var(--ink-3);
+  --accent: var(--paper-3);
+  --accent-foreground: var(--ink);
+  --destructive: var(--signal-deep);
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--signal);
+  --chart-1: var(--ink);
+  --chart-2: var(--ink-2);
+  --chart-3: var(--ink-3);
+  --chart-4: var(--signal);
+  --chart-5: var(--signal-2);
+  --sidebar: var(--paper-2);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--signal);
+  --sidebar-primary-foreground: var(--paper);
+  --sidebar-accent: var(--paper-3);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--rule);
+  --sidebar-ring: var(--signal);
+}
+
+.dark {
+  --paper: #0B0B0C; --paper-2: #141414; --paper-3: #1C1C1C;
+  --ink: #F4F2EE;   --ink-2: #C9C5BD;  --ink-3: #8C887F;
+  --rule: #2A2826;  --rule-strong: #3A3836;
+  --signal: #FF3B4F; --signal-deep: #C8102E; --signal-tint: #2A0F14; --signal-2: #FF6B7A;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--signal);
+  --primary-foreground: var(--ink);
+  --secondary: var(--paper-2);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-2);
+  --muted-foreground: var(--ink-3);
+  --accent: var(--paper-3);
+  --accent-foreground: var(--ink);
+  --destructive: var(--signal);
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--signal);
+  --sidebar: var(--paper-2);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--signal);
+  --sidebar-primary-foreground: var(--ink);
+  --sidebar-accent: var(--paper-3);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--rule);
+  --sidebar-ring: var(--signal);
+}
+
+@theme inline {
+  --color-paper: var(--paper); --color-paper-2: var(--paper-2); --color-paper-3: var(--paper-3);
+  --color-ink: var(--ink); --color-ink-2: var(--ink-2); --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule); --color-rule-strong: var(--rule-strong);
+  --color-signal: var(--signal); --color-signal-deep: var(--signal-deep);
+  --color-signal-tint: var(--signal-tint); --color-signal-2: var(--signal-2);
+  --color-warn: var(--warn);
+  --color-heat-0: var(--heat-0); --color-heat-1: var(--heat-1); --color-heat-2: var(--heat-2);
+  --color-heat-3: var(--heat-3); --color-heat-4: var(--heat-4);
+  --color-ink-ramp-1: var(--ink-ramp-1); --color-ink-ramp-2: var(--ink-ramp-2);
+  --color-ink-ramp-3: var(--ink-ramp-3); --color-ink-ramp-4: var(--ink-ramp-4); --color-ink-ramp-5: var(--ink-ramp-5);
+  --font-serif: var(--font-serif); --font-sans: var(--font-sans); --font-mono: var(--font-mono);
+
+  /* Type scale utilities: text-display, text-h1, text-h2, text-h3, text-lede, text-body, text-small,
+     text-kicker, text-label. Each sets size and line-height together. */
+  --font-size-display: var(--text-display);       --leading-display: var(--leading-display);
+  --font-size-display-md: var(--text-display-md);  --leading-display-md: var(--leading-display-md);
+  --font-size-h1: var(--text-h1);                  --leading-h1: var(--leading-h1);
+  --font-size-h2: var(--text-h2);                  --leading-h2: var(--leading-h2);
+  --font-size-h3: var(--text-h3);                  --leading-h3: var(--leading-h3);
+  --font-size-lede: var(--text-lede);              --leading-lede: var(--leading-lede);
+  --font-size-body: var(--text-body);              --leading-body: var(--leading-body);
+  --font-size-small: var(--text-small);            --leading-small: var(--leading-small);
+  --font-size-kicker: var(--text-kicker);          --leading-kicker: var(--leading-kicker);
+  --font-size-label: var(--text-label);            --leading-label: var(--leading-label);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Square corners everywhere, per the deck/UI doctrine (no rounded "pill cards"). */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+::selection { background: var(--signal); color: var(--paper); }
+
+.font-tnum { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

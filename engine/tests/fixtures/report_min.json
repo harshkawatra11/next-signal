@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "run_id": "fixture001",
+    "symbol": "CIPLA",
+    "company": "Cipla Limited",
+    "sub_industry": "pharma",
+    "as_of": "2026-10-11",
+    "started_at": "2026-10-11T10:00:00Z",
+    "finished_at": "2026-10-11T10:06:40Z",
+    "runtime_s": 400.0,
+    "llm_calls": 12,
+    "llm_provider_mix": {"sarvam": 11, "gemini": 1},
+    "sources_hit": 18,
+    "documents": 22,
+    "status": "done"
+  },
+  "discovery": {
+    "sentence": "Cipla's North America revenue has grown for three consecutive quarters while its lanreotide line stayed paused on a partner facility issue, a gap the company's own narrative does not separate out.",
+    "why_it_matters": [
+      "The headline US growth number hides a product-level supply risk tied to a named partner site.",
+      "A partner facility dependency is not visible from Cipla's own disclosures alone.",
+      "If the partner site issue resolves, the growth rate could accelerate further.",
+      "If it does not resolve within two quarters, US growth could decelerate sharply."
+    ],
+    "evidence": [
+      {
+        "ev_id": "EV1",
+        "doc_id": "DOC1",
+        "title": "Cipla Q1 FY27 Investor Presentation",
+        "url": "https://www.nseindia.com/corporate/CIPLA_Q1FY27_Presentation.pdf",
+        "publisher": "Cipla Limited",
+        "origin_class": "company_filing",
+        "reliability": "A",
+        "published_at": "2026-07-22T00:00:00Z",
+        "supports": ["H1"],
+        "contradicts": [],
+        "anchor": {"doc_id": "DOC1", "page": 4, "quote": "North America revenue of $162 Mn during the quarter", "verified": true}
+      }
+    ],
+    "timeline": [
+      {"date": "2026-04-15", "label": "Partner facility observation reported", "kind": "regulatory_usfda", "event_id": "E1", "is_changepoint": true}
+    ],
+    "numbers": [
+      {"number_id": "N1", "label": "North America revenue", "value": 162.0, "unit": "USD_mn", "period": "Q1FY27", "formula": "as reported", "inputs": ["F1"], "display": "USD 162 million"}
+    ],
+    "counterargument": "Industry-wide US pricing pressure explains some of the growth deceleration risk, not only the partner facility issue.",
+    "counter_evidence_ids": ["EV1"],
+    "falsification": {
+      "statement": "North America revenue growth below 0 percent for two consecutive quarters would contradict this finding",
+      "metric_id": "us_rev_usd_yoy",
+      "comparator": "<",
+      "threshold": 0.0,
+      "periods_required": 2,
+      "next_check": "2027-01-31",
+      "check_source": "Cipla Q3 FY27 results"
+    },
+    "strength": {
+      "independence": 2, "reliability": 1.8, "corroboration": 1.5, "survival": 1.2,
+      "persistence": 1.0, "penalties": 0.0, "total": 7.5, "label": "Strong",
+      "reasoning": ["2 independent origins", "average source grade 1.8/2"]
+    },
+    "claims": [{"claim_id": "C1", "text": "North America revenue was $162 million in Q1 FY27", "evidence_ids": ["EV1"], "number_ids": ["N1"]}],
+    "novelty": 0.6,
+    "angle_id": "P9"
+  },
+  "runners_up": [],
+  "killed": [],
+  "tests": [],
+  "ach": {},
+  "contradictions": [],
+  "documents": [],
+  "events": [],
+  "metrics": [],
+  "anomalies": [],
+  "angles_considered": [],
+  "trace": []
+}

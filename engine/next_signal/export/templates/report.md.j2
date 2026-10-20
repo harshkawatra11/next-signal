@@ -1,0 +1,100 @@
+# Next Signal: {{ report.meta.company }} ({{ report.meta.symbol }})
+
+Track D, {{ report.meta.sub_industry }} playbook. As of {{ report.meta.as_of }}. Generated {{ report.meta.finished_at }}.
+
+{% if discovery %}
+## The Discovery
+
+{{ discovery.sentence }}
+
+## Why It Matters
+
+{% for bullet in discovery.why_it_matters %}
+- {{ bullet }}
+{% endfor %}
+
+## Evidence
+
+| # | Claim | Publisher | Origin | Grade | Date | Link |
+|---|---|---|---|---|---|---|
+{% for e in discovery.evidence -%}
+| {{ loop.index }} | {{ e.anchor.quote }} | {{ e.publisher }} | {{ e.origin_class }} | {{ e.reliability }} | {{ e.published_at.date() if e.published_at else "" }} | [source]({{ e.url }}) |
+{% endfor %}
+
+## Timeline
+
+| Date | Event | Kind | Change point |
+|---|---|---|---|
+{% for t in discovery.timeline -%}
+| {{ t.date }} | {{ t.label }} | {{ t.kind }} | {{ "yes" if t.is_changepoint else "" }} |
+{% endfor %}
+
+## Numbers
+
+| Label | Value | Period | Formula |
+|---|---|---|---|
+{% for n in discovery.numbers -%}
+| {{ n.label }} | {{ n.display }} | {{ n.period }} | {{ n.formula }} |
+{% endfor %}
+
+## Counterargument
+
+{{ discovery.counterargument }}
+
+## Falsification Condition
+
+{{ discovery.falsification.statement }}
+
+Next check: {{ discovery.falsification.next_check }}, from {{ discovery.falsification.check_source }}.
+
+## Evidence Strength
+
+**{{ discovery.strength.label }}** ({{ discovery.strength.total }}/10)
+
+{% for r in discovery.strength.reasoning %}
+- {{ r }}
+{% endfor %}
+
+## How the agent got here
+
+Angles considered: {{ report.angles_considered | length }}. Hypotheses proposed: {{ (report.runners_up + report.killed) | length }}. Killed: {{ report.killed | length }}.
+
+{% if report.killed %}
+### Hypotheses killed
+
+{% for h in report.killed %}
+- **{{ h.statement }}** ({{ h.hyp_id }}): {{ h.kill_reason }}
+{% endfor %}
+{% endif %}
+
+{% if report.contradictions %}
+### Contradictions found and resolved
+
+{% for c in report.contradictions %}
+- **{{ c.claim }}** ({{ c.type }}): {{ c.side_a }} versus {{ c.side_b }}. Ruling: {{ c.ruling }}
+{% endfor %}
+{% endif %}
+
+{% else %}
+## No discovery survived the challenge stage
+
+All {{ report.killed | length }} hypotheses were killed or downgraded below a reportable strength, so the engine reports no finding.
+
+{% if report.killed %}
+### Hypotheses killed
+
+{% for h in report.killed %}
+- **{{ h.statement }}** ({{ h.hyp_id }}): {{ h.kill_reason }}
+{% endfor %}
+{% endif %}
+{% endif %}
+
+## Sources
+
+{% for doc in report.documents %}
+{{ loop.index }}. {{ doc.publisher }}, {{ doc.title }}, [{{ doc.url }}]({{ doc.url }}){% if doc.published_at %}, {{ doc.published_at.date() }}{% endif %}
+{% endfor %}
+
+---
+
+Public data only. Research output for evaluation purposes. Not investment advice.

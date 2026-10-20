@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ text.title }}</title>
+<style>
+@font-face { font-family: "STIX Two Text"; src: url("{{ fonts }}/STIXTwoText-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "STIX Two Text"; src: url("{{ fonts }}/STIXTwoText-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "STIX Two Text"; src: url("{{ fonts }}/STIXTwoText-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "STIX Two Text"; src: url("{{ fonts }}/STIXTwoText-BoldItalic.woff2") format("woff2"); font-weight: 700; font-style: italic; }
+@page { size: A4; margin: 25mm 25mm 28mm 25mm; }
+html, body { background: #fff; color: #000; }
+body { margin: 0; font-family: "STIX Two Text", "Times New Roman", Times, serif; font-size: 10.5pt; line-height: 14.5pt;
+       text-align: justify; hyphens: auto; font-variant-numeric: lining-nums; -webkit-print-color-adjust: exact; }
+.title { font-size: 17pt; line-height: 21pt; font-weight: 700; text-align: center; margin: 0 0 4mm; hyphens: none; }
+.byline { text-align: center; font-size: 10pt; line-height: 13pt; margin: 0; }
+.dateline { text-align: center; font-size: 9.5pt; font-style: italic; margin: 1mm 0 6mm; }
+.abstract { margin: 0 10mm 3mm; font-size: 9.5pt; line-height: 13pt; }
+.abstract .label { font-weight: 700; font-variant: small-caps; letter-spacing: .05em; }
+.keywords { margin: 0 10mm 8mm; font-size: 9pt; }
+h2 { font-size: 12pt; line-height: 15pt; font-weight: 700; margin: 7mm 0 2.5mm; text-align: left; break-after: avoid; }
+h2 .num { display: inline-block; min-width: 7mm; }
+h3 { font-size: 10.5pt; font-style: italic; font-weight: 400; margin: 4mm 0 1.5mm; break-after: avoid; }
+p { margin: 0; text-indent: 5mm; orphans: 3; widows: 3; }
+h2 + p, h3 + p, .figure + p, .table + p { text-indent: 0; }
+.figure, .table { margin: 5mm 0; break-inside: avoid; }
+.figure svg { display: block; width: 100%; height: auto; }
+.figure .cap { font-size: 9pt; line-height: 12pt; margin-top: 2mm; text-align: left; }
+.table .cap { font-size: 9pt; line-height: 12pt; margin-bottom: 2mm; text-align: left; }
+.cap b { font-weight: 700; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; line-height: 11.5pt; font-variant-numeric: tabular-nums lining-nums; }
+thead tr:first-child th { border-top: 1pt solid #000; }
+thead th { border-bottom: 0.5pt solid #000; font-weight: 700; padding: 1.2mm 1.5mm; text-align: left; vertical-align: bottom; }
+tbody td { padding: 0.9mm 1.5mm; vertical-align: top; text-align: left; }
+tbody tr:last-child td { border-bottom: 1pt solid #000; }
+td.r, th.r { text-align: right; white-space: nowrap; }
+.tnote { font-size: 8.5pt; line-height: 11pt; margin-top: 1.5mm; text-align: left; }
+.refs { font-size: 9pt; line-height: 12pt; text-align: left; }
+.refs li { list-style: none; padding-left: 8mm; text-indent: -8mm; margin-bottom: 1.5mm; word-break: break-word; }
+.disclaimer { margin-top: 8mm; font-size: 8.5pt; line-height: 11pt; font-style: italic; text-align: left; }
+a { color: #000; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="title">{{ text.title }}</div>
+<p class="byline">Next Signal Research</p>
+<p class="dateline">Prepared {{ spec.prepared }}. Financial data as of {{ spec.as_of }}.</p>
+
+<div class="abstract"><span class="label">Abstract.</span> {{ text.abstract }}</div>
+<div class="keywords"><i>Keywords:</i> {{ spec.keywords | join(", ") }}</div>
+
+{% macro figure_block(fig) %}
+<div class="figure">
+  {{ fig.svg | safe }}
+  <div class="cap"><b>Figure {{ fig.number }}.</b> {{ fig.caption }}</div>
+</div>
+{% endmacro %}
+
+{% macro table_block(t) %}
+<div class="table">
+  <div class="cap"><b>Table {{ t.number }}.</b> {{ t.caption }}</div>
+  <table>
+    <thead><tr>{% for c, a in zip(t.columns, t.align) %}<th class="{{ 'r' if a == 'r' else '' }}">{{ c }}</th>{% endfor %}</tr></thead>
+    <tbody>
+      {% for row in t.rows %}
+      <tr>{% for cell, a in zip(row, t.align) %}<td class="{{ 'r' if a == 'r' else '' }}">{{ cell }}</td>{% endfor %}</tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% if t.note %}<div class="tnote">{{ t.note }}</div>{% endif %}
+</div>
+{% endmacro %}
+
+<h2><span class="num">1</span>Introduction</h2>
+{% for para in text.introduction %}<p>{{ para }}</p>{% endfor %}
+
+<h2><span class="num">2</span>The company and the data</h2>
+{% for para in text.company_and_data %}<p>{{ para }}</p>{% endfor %}
+{{ table_block(table1) }}
+{{ figure_block(figure1) }}
+
+<h2><span class="num">3</span>What changed</h2>
+{% for para in text.findings %}<p>{{ para }}</p>{% endfor %}
+{% if figure2 %}{{ figure_block(figure2) }}{% endif %}
+{{ table_block(table2) }}
+{% if figure3 %}{{ figure_block(figure3) }}{% endif %}
+{% if table4 %}{{ table_block(table4) }}{% endif %}
+
+<h2><span class="num">4</span>Competing explanations</h2>
+{% for para in text.explanations %}<p>{{ para }}</p>{% endfor %}
+{{ table_block(table3) }}
+
+<h2><span class="num">5</span>What would change this view</h2>
+{% for para in text.outlook %}<p>{{ para }}</p>{% endfor %}
+{% if figure4 %}{{ figure_block(figure4) }}{% endif %}
+
+<h2><span class="num">6</span>Conclusion</h2>
+{% for para in text.conclusion %}<p>{{ para }}</p>{% endfor %}
+
+<h2>References</h2>
+<ol class="refs">
+  {% for r in spec.references %}<li>[{{ r.number }}] {{ r.text }}</li>{% endfor %}
+</ol>
+
+<h2>Appendix A. Method</h2>
+<p>Data come from quarterly financial results filed by the company and its peers with the National Stock Exchange of India. Every figure in the tables was computed from those filings. A change is flagged when it departs from the company's own history and from its peers. Each explanation is checked with the questions set out in Table 3.</p>
+<div class="table">
+  <div class="cap"><b>Table A1.</b> Reliability grading of the sources behind this note.</div>
+  <table>
+    <thead><tr><th>Grade</th><th>Meaning</th><th>Example source class</th></tr></thead>
+    <tbody>
+      <tr><td>A</td><td>Primary filing by the company itself</td><td>Quarterly results, investor presentation</td></tr>
+      <tr><td>B</td><td>Primary filing by a regulator or exchange</td><td>Exchange disclosure, regulatory notice</td></tr>
+      <tr><td>C</td><td>Independent assessment of the company</td><td>Credit rating rationale</td></tr>
+      <tr><td>D</td><td>Secondary reporting corroborated elsewhere</td><td>Trade or financial press</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="disclaimer">This note is prepared from public filings for research and evaluation. It is not investment advice and makes no recommendation to buy, sell or hold any security.</p>
+
+</body>
+</html>

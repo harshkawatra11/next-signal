@@ -1,0 +1,1114 @@
+{
+  "meta": {
+    "run_id": "CIPLA-20261016120000-ab12",
+    "symbol": "CIPLA",
+    "company": "Cipla Limited",
+    "sub_industry": "pharma",
+    "as_of": "2026-10-16",
+    "started_at": "2026-10-16T10:00:00Z",
+    "finished_at": "2026-10-16T10:06:40Z",
+    "runtime_s": 187.4,
+    "llm_calls": 9,
+    "llm_provider_mix": {
+      "sarvam": 8,
+      "gemini": 1
+    },
+    "sources_hit": 6,
+    "documents": 14,
+    "status": "done"
+  },
+  "discovery": {
+    "sentence": "Cipla's North America revenue grew for three consecutive quarters while its lanreotide line stayed paused on a partner facility issue, a gap the company's own narrative does not separate out.",
+    "why_it_matters": [
+      "The headline US growth number hides a product-level supply risk tied to a named manufacturing partner.",
+      "A partner facility dependency is not visible from Cipla's own disclosures taken alone.",
+      "Gross margin in the US segment fell 2.1 points over the same three quarters, a divergence management did not address on the Q1 FY27 call.",
+      "If the partner site issue resolves, reported growth could understate a larger recovery already underway.",
+      "If it does not resolve within two quarters, US growth could decelerate sharply once the current product mix normalises."
+    ],
+    "evidence": [
+      {
+        "ev_id": "EV1",
+        "doc_id": "DOC1",
+        "title": "Cipla Q1 FY27 Investor Presentation",
+        "url": "https://nsearchives.nseindia.com/corporate/CIPLA_Q1FY27_Presentation.pdf",
+        "publisher": "Cipla Limited",
+        "origin_class": "company_filing",
+        "reliability": "A",
+        "published_at": "2026-07-22T00:00:00Z",
+        "supports": [
+          "H1"
+        ],
+        "contradicts": [],
+        "anchor": {
+          "doc_id": "DOC1",
+          "page": 4,
+          "quote": "North America revenue of USD 162 million during the quarter",
+          "verified": true
+        }
+      },
+      {
+        "ev_id": "EV2",
+        "doc_id": "DOC2",
+        "title": "FDA Form 483 observations, Pharmathen Rodopi facility",
+        "url": "https://www.accessdata.fda.gov/cms_ia/form483/pharmathen_rodopi_2026.pdf",
+        "publisher": "US Food and Drug Administration",
+        "origin_class": "regulator_us",
+        "reliability": "A",
+        "published_at": "2026-04-15T00:00:00Z",
+        "supports": [
+          "H1"
+        ],
+        "contradicts": [],
+        "anchor": {
+          "doc_id": "DOC2",
+          "page": 1,
+          "quote": "Form 483 issued following inspection of sterile manufacturing suite 3",
+          "verified": true
+        }
+      },
+      {
+        "ev_id": "EV3",
+        "doc_id": "DOC3",
+        "title": "Cipla Q1 FY27 results XBRL filing",
+        "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIPLA_Q1FY27.xml",
+        "publisher": "Cipla Limited",
+        "origin_class": "company_filing",
+        "reliability": "A",
+        "published_at": "2026-07-20T00:00:00Z",
+        "supports": [
+          "H1"
+        ],
+        "contradicts": [],
+        "anchor": {
+          "doc_id": "DOC3",
+          "page": null,
+          "quote": "RevenueFromOperations=61420000000 (context OneD, 2026-04-01 to 2026-06-30)",
+          "verified": true
+        }
+      },
+      {
+        "ev_id": "EV4",
+        "doc_id": "DOC4",
+        "title": "CRISIL Ratings rationale, Cipla Limited",
+        "url": "https://www.crisilratings.com/en/home/our-business/ratings/press-releases/2026/cipla.html",
+        "publisher": "CRISIL Ratings",
+        "origin_class": "rating_agency",
+        "reliability": "B",
+        "published_at": "2026-05-02T00:00:00Z",
+        "supports": [],
+        "contradicts": [
+          "H1"
+        ],
+        "anchor": {
+          "doc_id": "DOC4",
+          "page": 2,
+          "quote": "US generics pricing pressure continues to weigh on the sector broadly",
+          "verified": true
+        }
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2026-04-15",
+        "label": "FDA Form 483 issued at partner Pharmathen's Rodopi facility",
+        "kind": "regulatory_usfda",
+        "event_id": "E1",
+        "is_changepoint": true
+      },
+      {
+        "date": "2026-05-02",
+        "label": "CRISIL reaffirms rating, flags sector-wide US pricing pressure",
+        "kind": "credit_rating",
+        "event_id": "E2",
+        "is_changepoint": false
+      },
+      {
+        "date": "2026-07-20",
+        "label": "Q1 FY27 results filed, lanreotide line still paused",
+        "kind": "results",
+        "event_id": "E3",
+        "is_changepoint": false
+      },
+      {
+        "date": "2026-07-22",
+        "label": "Investor presentation: North America revenue USD 162 million",
+        "kind": "presentation",
+        "event_id": "E4",
+        "is_changepoint": false
+      },
+      {
+        "date": "2026-08-04",
+        "label": "First mainstream coverage of the Pharmathen facility status",
+        "kind": "press",
+        "event_id": "E5",
+        "is_changepoint": false
+      }
+    ],
+    "numbers": [
+      {
+        "number_id": "N1",
+        "label": "North America revenue",
+        "value": 162.0,
+        "unit": "USD_mn",
+        "period": "Q1FY27",
+        "formula": "as reported, XBRL RevenueFromOperations (US segment)",
+        "inputs": [
+          "F1"
+        ],
+        "display": "USD 162 million"
+      },
+      {
+        "number_id": "N2",
+        "label": "North America revenue, three-quarter CAGR",
+        "value": 8.4,
+        "unit": "pct",
+        "period": "Q3FY26 to Q1FY27",
+        "formula": "(162/143)^(1/0.5) - 1, annualised",
+        "inputs": [
+          "F1",
+          "F2"
+        ],
+        "display": "8.4%"
+      },
+      {
+        "number_id": "N3",
+        "label": "US segment gross margin, change",
+        "value": -2.1,
+        "unit": "pct_pts",
+        "period": "Q3FY26 to Q1FY27",
+        "formula": "gross_margin(Q1FY27) - gross_margin(Q3FY26)",
+        "inputs": [
+          "F3",
+          "F4"
+        ],
+        "display": "down 2.1 points"
+      },
+      {
+        "number_id": "N4",
+        "label": "Days since facility observation to first mainstream coverage",
+        "value": 111.0,
+        "unit": "days",
+        "period": "2026-04-15 to 2026-08-04",
+        "formula": "date difference",
+        "inputs": [],
+        "display": "111 days"
+      }
+    ],
+    "counterargument": "Industry-wide US generics pricing pressure, which CRISIL's own May 2026 rating rationale names explicitly, explains some of the margin compression without any need for a partner-specific supply disruption.",
+    "counter_evidence_ids": [
+      "EV4"
+    ],
+    "falsification": {
+      "statement": "us_rev_usd_yoy >= 0.0 for 2 consecutive periods (next check: 2027-01-31, source: Cipla Q3 FY27 results)",
+      "metric_id": "us_rev_usd_yoy",
+      "comparator": ">=",
+      "threshold": 0.0,
+      "periods_required": 2,
+      "next_check": "2027-01-31",
+      "check_source": "Cipla Q3 FY27 results"
+    },
+    "strength": {
+      "independence": 2,
+      "reliability": 1.8,
+      "corroboration": 1.5,
+      "survival": 1.6,
+      "persistence": 1.0,
+      "penalties": 0.0,
+      "total": 7.9,
+      "label": "Strong",
+      "reasoning": [
+        "2 independent origins (+2): company_filing and regulator_us",
+        "average source grade 1.8/2",
+        "3/4 key numbers reproduced in a second source (+1.5)",
+        "4/5 falsification tests passed (+1.6)",
+        "persists for 3 periods (+1.0)"
+      ]
+    },
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "North America revenue was USD 162 million in Q1 FY27, up from USD 143 million three quarters earlier",
+        "evidence_ids": [
+          "EV1",
+          "EV3"
+        ],
+        "number_ids": [
+          "N1",
+          "N2"
+        ]
+      },
+      {
+        "claim_id": "C2",
+        "text": "The FDA issued a Form 483 at partner Pharmathen's Rodopi facility on 15 April 2026, 111 days before mainstream coverage",
+        "evidence_ids": [
+          "EV2"
+        ],
+        "number_ids": [
+          "N4"
+        ]
+      }
+    ],
+    "novelty": 0.68,
+    "angle_id": "P9",
+    "hyp_id": "H1"
+  },
+  "runners_up": [
+    {
+      "hyp_id": "H2",
+      "angle_id": "P6",
+      "statement": "Receivable days grew faster than revenue over the last four quarters, suggesting channel stuffing ahead of a pricing change.",
+      "mechanism": "A distributor incentive programme pulled forward recognised revenue without matching cash collection.",
+      "predictions": [
+        {
+          "metric_id": "receivable_days",
+          "direction": "up",
+          "where_to_check": "annual report working capital note"
+        },
+        {
+          "metric_id": "rec_growth_minus_rev_growth",
+          "direction": "present",
+          "where_to_check": "XBRL quarterly filings"
+        }
+      ],
+      "disconfirmers": [
+        "a stated change in credit terms to a named distributor",
+        "a one-time GST transition effect"
+      ],
+      "is_rival_of": null,
+      "status": "downgraded",
+      "kill_reason": null
+    }
+  ],
+  "killed": [
+    {
+      "hyp_id": "H3",
+      "angle_id": "P3",
+      "statement": "India branded formulations revenue is substituting for US generics decline.",
+      "mechanism": "Domestic price increases under NPPA relaxation offset US pricing pressure.",
+      "predictions": [
+        {
+          "metric_id": "india_vs_ipm_gap",
+          "direction": "up",
+          "where_to_check": "IQVIA IPM data"
+        }
+      ],
+      "disconfirmers": [
+        "India growth tracking the broader IPM rate"
+      ],
+      "is_rival_of": null,
+      "status": "killed",
+      "kill_reason": "failed T1 (peer test): the move is sector-wide, not company-specific"
+    }
+  ],
+  "tests": [
+    {
+      "hyp_id": "H1",
+      "test_id": "T1",
+      "applicable": true,
+      "passed": true,
+      "detail": "robust peer z 1.82 vs 4 peers; sector-wide=False",
+      "evidence_ids": [
+        "EV1"
+      ]
+    },
+    {
+      "hyp_id": "H1",
+      "test_id": "T2",
+      "applicable": true,
+      "passed": true,
+      "detail": "INR yoy 0.062, USD yoy 0.084, same sign=True",
+      "evidence_ids": [
+        "EV3"
+      ]
+    },
+    {
+      "hyp_id": "H1",
+      "test_id": "T3",
+      "applicable": false,
+      "passed": null,
+      "detail": "no disclosed one-off in window",
+      "evidence_ids": []
+    },
+    {
+      "hyp_id": "H1",
+      "test_id": "T4",
+      "applicable": false,
+      "passed": null,
+      "detail": "labels unchanged across periods",
+      "evidence_ids": []
+    },
+    {
+      "hyp_id": "H1",
+      "test_id": "T5",
+      "applicable": true,
+      "passed": true,
+      "detail": "3 of last 4 same-quarter YoY moves agree",
+      "evidence_ids": [
+        "EV3"
+      ]
+    },
+    {
+      "hyp_id": "H1",
+      "test_id": "T6",
+      "applicable": true,
+      "passed": true,
+      "detail": "3 periods after the change; pre-change mean 148.2",
+      "evidence_ids": [
+        "EV1",
+        "EV3"
+      ]
+    },
+    {
+      "hyp_id": "H3",
+      "test_id": "T1",
+      "applicable": true,
+      "passed": false,
+      "detail": "robust peer z 0.31 vs 4 peers; sector-wide=True",
+      "evidence_ids": []
+    },
+    {
+      "hyp_id": "H3",
+      "test_id": "T6",
+      "applicable": true,
+      "passed": false,
+      "detail": "no change persisting 2+ periods",
+      "evidence_ids": []
+    }
+  ],
+  "ach": {
+    "hypotheses": [
+      "H1",
+      "H1-R-sector",
+      "H1-R-fx",
+      "H1-R-oneoff",
+      "H1-R-accounting",
+      "H1-R-seasonal"
+    ],
+    "evidence": [
+      "EV1",
+      "EV2",
+      "EV3",
+      "EV4"
+    ],
+    "cells": [
+      [
+        "CC",
+        "I",
+        "N",
+        "N",
+        "N",
+        "N"
+      ],
+      [
+        "CC",
+        "I",
+        "N",
+        "N",
+        "N",
+        "N"
+      ],
+      [
+        "C",
+        "N",
+        "N",
+        "N",
+        "N",
+        "N"
+      ],
+      [
+        "I",
+        "CC",
+        "N",
+        "N",
+        "N",
+        "N"
+      ]
+    ],
+    "inconsistency": [
+      0,
+      -2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ranked": [
+      "H1",
+      "H1-R-oneoff",
+      "H1-R-accounting",
+      "H1-R-seasonal",
+      "H1-R-fx",
+      "H1-R-sector"
+    ]
+  },
+  "contradictions": [
+    {
+      "con_id": "CON1",
+      "type": "aggregator_vs_primary",
+      "claim": "Cipla Q1 FY27 consolidated net profit",
+      "side_a": "screener.in reports Rs 1,106 crore",
+      "side_b": "XBRL ProfitLossForPeriod reports Rs 1,088 crore",
+      "anchors": [
+        {
+          "doc_id": "DOC3",
+          "page": null,
+          "quote": "ProfitLossForPeriod=10880000000 (context OneD, 2026-04-01 to 2026-06-30)",
+          "verified": true
+        }
+      ],
+      "ruling": "Primary XBRL filing takes precedence over the aggregator figure; Rs 1,088 crore is used throughout.",
+      "resolved": true
+    }
+  ],
+  "documents": [
+    {
+      "doc_id": "DOC1",
+      "kind": "presentation",
+      "title": "Cipla Q1 FY27 Investor Presentation",
+      "url": "https://nsearchives.nseindia.com/corporate/CIPLA_Q1FY27_Presentation.pdf",
+      "publisher": "Cipla Limited",
+      "origin_class": "company_filing",
+      "published_at": "2026-07-22T00:00:00Z",
+      "fetched_at": "2026-10-16T10:01:12Z",
+      "pages": 24,
+      "reliability": "A"
+    },
+    {
+      "doc_id": "DOC2",
+      "kind": "regulatory_usfda",
+      "title": "FDA Form 483 observations, Pharmathen Rodopi facility",
+      "url": "https://www.accessdata.fda.gov/cms_ia/form483/pharmathen_rodopi_2026.pdf",
+      "publisher": "US Food and Drug Administration",
+      "origin_class": "regulator_us",
+      "published_at": "2026-04-15T00:00:00Z",
+      "fetched_at": "2026-10-16T10:01:40Z",
+      "pages": 6,
+      "reliability": "A"
+    },
+    {
+      "doc_id": "DOC3",
+      "kind": "results_xbrl",
+      "title": "Cipla Q1 FY27 results XBRL filing",
+      "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIPLA_Q1FY27.xml",
+      "publisher": "Cipla Limited",
+      "origin_class": "company_filing",
+      "published_at": "2026-07-20T00:00:00Z",
+      "fetched_at": "2026-10-16T10:00:55Z",
+      "pages": 0,
+      "reliability": "A"
+    },
+    {
+      "doc_id": "DOC4",
+      "kind": "credit_rating",
+      "title": "CRISIL Ratings rationale, Cipla Limited",
+      "url": "https://www.crisilratings.com/en/home/our-business/ratings/press-releases/2026/cipla.html",
+      "publisher": "CRISIL Ratings",
+      "origin_class": "rating_agency",
+      "published_at": "2026-05-02T00:00:00Z",
+      "fetched_at": "2026-10-16T10:02:03Z",
+      "pages": 4,
+      "reliability": "B"
+    },
+    {
+      "doc_id": "DOC5",
+      "kind": "results_xbrl",
+      "title": "Cipla Q4 FY26 results XBRL filing",
+      "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIPLA_Q4FY26.xml",
+      "publisher": "Cipla Limited",
+      "origin_class": "company_filing",
+      "published_at": "2026-04-28T00:00:00Z",
+      "fetched_at": "2026-10-16T10:01:02Z",
+      "pages": 0,
+      "reliability": "A"
+    },
+    {
+      "doc_id": "DOC6",
+      "kind": "results_xbrl",
+      "title": "Cipla Q3 FY26 results XBRL filing",
+      "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIPLA_Q3FY26.xml",
+      "publisher": "Cipla Limited",
+      "origin_class": "company_filing",
+      "published_at": "2026-01-29T00:00:00Z",
+      "fetched_at": "2026-10-16T10:00:58Z",
+      "pages": 0,
+      "reliability": "A"
+    },
+    {
+      "doc_id": "DOC7",
+      "kind": "transcript",
+      "title": "Cipla Q1 FY27 earnings call transcript",
+      "url": "https://nsearchives.nseindia.com/corporate/CIPLA_Q1FY27_Transcript.pdf",
+      "publisher": "Cipla Limited",
+      "origin_class": "company_filing",
+      "published_at": "2026-07-25T00:00:00Z",
+      "fetched_at": "2026-10-16T10:02:20Z",
+      "pages": 12,
+      "reliability": "A"
+    },
+    {
+      "doc_id": "DOC8",
+      "kind": "results_comparison",
+      "title": "Cipla results comparison, exchange data",
+      "url": "https://www.nseindia.com/api/results-comparision?symbol=CIPLA",
+      "publisher": "National Stock Exchange of India",
+      "origin_class": "exchange",
+      "published_at": "2026-07-20T00:00:00Z",
+      "fetched_at": "2026-10-16T10:01:30Z",
+      "pages": 0,
+      "reliability": "A"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "E1",
+      "date": "2026-04-15",
+      "kind": "regulatory_usfda",
+      "title": "FDA Form 483 issued at partner Pharmathen's Rodopi facility",
+      "origin_class": "regulator_us",
+      "url": "https://www.accessdata.fda.gov/cms_ia/form483/pharmathen_rodopi_2026.pdf",
+      "anchor": null
+    },
+    {
+      "event_id": "E2",
+      "date": "2026-05-02",
+      "kind": "credit_rating",
+      "title": "CRISIL reaffirms rating, flags sector-wide US pricing pressure",
+      "origin_class": "rating_agency",
+      "url": "https://www.crisilratings.com/en/home/our-business/ratings/press-releases/2026/cipla.html",
+      "anchor": null
+    },
+    {
+      "event_id": "E3",
+      "date": "2026-07-20",
+      "kind": "results",
+      "title": "Q1 FY27 results filed, lanreotide line still paused",
+      "origin_class": "company_filing",
+      "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIPLA_Q1FY27.xml",
+      "anchor": null
+    },
+    {
+      "event_id": "E4",
+      "date": "2026-07-22",
+      "kind": "presentation",
+      "title": "Investor presentation: North America revenue USD 162 million",
+      "origin_class": "company_filing",
+      "url": "https://nsearchives.nseindia.com/corporate/CIPLA_Q1FY27_Presentation.pdf",
+      "anchor": null
+    },
+    {
+      "event_id": "E5",
+      "date": "2026-08-04",
+      "kind": "press",
+      "title": "First mainstream coverage of the Pharmathen facility status",
+      "origin_class": "press",
+      "url": "https://www.fiercepharma.com/manufacturing/pharmathen-rodopi-483",
+      "anchor": null
+    }
+  ],
+  "metrics": [
+    {
+      "metric_id": "us_rev_usd_yoy",
+      "period": "Q1FY27",
+      "value": 0.084,
+      "unit": "pct",
+      "inputs": [
+        "CIPLA:Q1FY27:us_rev_usd_t",
+        "CIPLA:Q1FY26:us_rev_usd_t_minus_4q"
+      ],
+      "formula": "(us_rev_usd_t - us_rev_usd_t_minus_4q) / us_rev_usd_t_minus_4q"
+    },
+    {
+      "metric_id": "gross_margin",
+      "period": "Q1FY27",
+      "value": 0.612,
+      "unit": "pct",
+      "inputs": [
+        "CIPLA:Q1FY27:revenue",
+        "CIPLA:Q1FY27:cogs"
+      ],
+      "formula": "(revenue - cogs) / revenue"
+    },
+    {
+      "metric_id": "gross_margin",
+      "period": "Q4FY26",
+      "value": 0.621,
+      "unit": "pct",
+      "inputs": [
+        "CIPLA:Q4FY26:revenue",
+        "CIPLA:Q4FY26:cogs"
+      ],
+      "formula": "(revenue - cogs) / revenue"
+    },
+    {
+      "metric_id": "gross_margin",
+      "period": "Q3FY26",
+      "value": 0.633,
+      "unit": "pct",
+      "inputs": [
+        "CIPLA:Q3FY26:revenue",
+        "CIPLA:Q3FY26:cogs"
+      ],
+      "formula": "(revenue - cogs) / revenue"
+    },
+    {
+      "metric_id": "receivable_days",
+      "period": "Q1FY27",
+      "value": 54.2,
+      "unit": "days",
+      "inputs": [
+        "CIPLA:Q1FY27:trade_receivables",
+        "CIPLA:Q1FY27:revenue"
+      ],
+      "formula": "receivables / revenue * days_in_period"
+    },
+    {
+      "metric_id": "etr",
+      "period": "Q1FY27",
+      "value": 0.238,
+      "unit": "pct",
+      "inputs": [
+        "CIPLA:Q1FY27:tax_expense",
+        "CIPLA:Q1FY27:pbt"
+      ],
+      "formula": "tax_expense / pbt"
+    }
+  ],
+  "anomalies": [
+    {
+      "anomaly_id": "anom-us_rev_usd_yoy-Q1FY27",
+      "metric_id": "us_rev_usd_yoy",
+      "description": "us_rev_usd_yoy shows a score of 0.71 (peer z=1.82, change-point=Q3FY26, trend t=3.1)",
+      "peer_z": 1.82,
+      "changepoint_period": "Q3FY26",
+      "trend_t": 3.1,
+      "materiality_pct": 22.0,
+      "score": 0.71
+    },
+    {
+      "anomaly_id": "anom-gross_margin-Q1FY27",
+      "metric_id": "gross_margin",
+      "description": "gross_margin shows a score of 0.54 (peer z=-1.4, change-point=Q4FY26, trend t=-2.6)",
+      "peer_z": -1.4,
+      "changepoint_period": "Q4FY26",
+      "trend_t": -2.6,
+      "materiality_pct": 100.0,
+      "score": 0.54
+    },
+    {
+      "anomaly_id": "anom-receivable_days-Q1FY27",
+      "metric_id": "receivable_days",
+      "description": "receivable_days shows a score of 0.38 (peer z=0.9, change-point=None, trend t=1.8)",
+      "peer_z": 0.9,
+      "changepoint_period": null,
+      "trend_t": 1.8,
+      "materiality_pct": 12.0,
+      "score": 0.38
+    },
+    {
+      "anomaly_id": "anom-etr-Q1FY27",
+      "metric_id": "etr",
+      "description": "etr shows a score of 0.12 (peer z=0.2, change-point=None, trend t=0.5)",
+      "peer_z": 0.2,
+      "changepoint_period": null,
+      "trend_t": 0.5,
+      "materiality_pct": 8.0,
+      "score": 0.12
+    }
+  ],
+  "angles_considered": [
+    {
+      "angle_id": "P9",
+      "score": 0.78,
+      "reason": "4 of 4 metrics have 8 or more quarters; strongest change-point us_rev_usd_yoy Q3FY26"
+    },
+    {
+      "angle_id": "P2",
+      "score": 0.61,
+      "reason": "2 of 3 metrics have 8 or more quarters; FDA Form 483 event within the window"
+    },
+    {
+      "angle_id": "P6",
+      "score": 0.44,
+      "reason": "3 of 3 metrics have 8 or more quarters; weak change-point signal"
+    },
+    {
+      "angle_id": "P3",
+      "score": 0.29,
+      "reason": "2 of 2 metrics have 8 or more quarters; no change-point detected"
+    },
+    {
+      "angle_id": "P1",
+      "score": 0.22,
+      "reason": "1 of 3 metrics have 8 or more quarters; cdmo_share not computable"
+    },
+    {
+      "angle_id": "P4",
+      "score": 0.18,
+      "reason": "2 of 3 metrics have 8 or more quarters; flat trend"
+    },
+    {
+      "angle_id": "P5",
+      "score": 0.15,
+      "reason": "1 of 2 metrics have 8 or more quarters"
+    },
+    {
+      "angle_id": "P7",
+      "score": 0.14,
+      "reason": "2 of 2 metrics have 8 or more quarters; no anomaly"
+    },
+    {
+      "angle_id": "P8",
+      "score": 0.11,
+      "reason": "1 of 3 metrics have 8 or more quarters"
+    },
+    {
+      "angle_id": "P10",
+      "score": 0.09,
+      "reason": "0 of 2 metrics have 8 or more quarters"
+    }
+  ],
+  "trace": [
+    {
+      "stage": "discover",
+      "chosen_angles": [
+        "P9",
+        "P2",
+        "P6",
+        "P3"
+      ]
+    },
+    {
+      "stage": "connect",
+      "documents_fetched": 14,
+      "documents_in_window": 14,
+      "facts": 96
+    },
+    {
+      "stage": "calculate",
+      "metrics_computed": 42,
+      "anomalies_found": 4
+    },
+    {
+      "stage": "reason",
+      "main_hypotheses": 3,
+      "rivals_generated": 15
+    },
+    {
+      "stage": "challenge",
+      "hypotheses_tested": 3,
+      "killed": 1,
+      "downgraded": 1,
+      "survived": 1
+    },
+    {
+      "stage": "prove",
+      "discovery": "H1",
+      "strength": "Strong",
+      "strength_total": 7.9,
+      "used_fallback_writer": false
+    }
+  ],
+  "facts_count": 96,
+  "financials": [
+    {
+      "period": "Q1FY27",
+      "period_end": "2026-06-30",
+      "doc_id": "DOC3",
+      "values": {
+        "revenue": 6142.0,
+        "cogs": 2383.1,
+        "gross_profit": 3758.9,
+        "other_income": 103.0,
+        "ebitda": 1537.6,
+        "pbt": 1428.0,
+        "tax_expense": 340.0,
+        "pat": 1088.0,
+        "finance_costs": 24.0,
+        "dna": 196.0
+      }
+    },
+    {
+      "period": "Q4FY26",
+      "period_end": "2026-03-31",
+      "doc_id": "DOC5",
+      "values": {
+        "revenue": 5894.0,
+        "cogs": 2234.6,
+        "gross_profit": 3659.4,
+        "other_income": 97.0,
+        "ebitda": 1498.2,
+        "pbt": 1392.0,
+        "tax_expense": 331.0,
+        "pat": 1061.0,
+        "finance_costs": 22.0,
+        "dna": 191.0
+      }
+    },
+    {
+      "period": "Q3FY26",
+      "period_end": "2025-12-31",
+      "doc_id": "DOC6",
+      "values": {
+        "revenue": 5721.0,
+        "cogs": 2099.4,
+        "gross_profit": 3621.6,
+        "other_income": 88.0,
+        "ebitda": 1486.5,
+        "pbt": 1371.0,
+        "tax_expense": 325.0,
+        "pat": 1046.0,
+        "finance_costs": 21.0,
+        "dna": 188.0
+      }
+    },
+    {
+      "period": "Q2FY26",
+      "period_end": "2025-09-30",
+      "doc_id": "DOC9",
+      "values": {
+        "revenue": 5588.0,
+        "cogs": 2033.0,
+        "gross_profit": 3555.0,
+        "other_income": 84.0,
+        "ebitda": 1442.1,
+        "pbt": 1329.0,
+        "tax_expense": 315.0,
+        "pat": 1014.0,
+        "finance_costs": 20.0,
+        "dna": 184.0
+      }
+    },
+    {
+      "period": "Q1FY26",
+      "period_end": "2025-06-30",
+      "doc_id": "DOC10",
+      "values": {
+        "revenue": 5467.0,
+        "cogs": 1986.3,
+        "gross_profit": 3480.7,
+        "other_income": 79.0,
+        "ebitda": 1412.3,
+        "pbt": 1298.0,
+        "tax_expense": 308.0,
+        "pat": 990.0,
+        "finance_costs": 19.0,
+        "dna": 181.0
+      }
+    },
+    {
+      "period": "Q4FY25",
+      "period_end": "2025-03-31",
+      "doc_id": "DOC11",
+      "values": {
+        "revenue": 5390.0,
+        "cogs": 1967.3,
+        "gross_profit": 3422.7,
+        "other_income": 76.0,
+        "ebitda": 1382.0,
+        "pbt": 1267.0,
+        "tax_expense": 301.0,
+        "pat": 966.0,
+        "finance_costs": 18.0,
+        "dna": 178.0
+      }
+    },
+    {
+      "period": "Q3FY25",
+      "period_end": "2024-12-31",
+      "doc_id": "DOC12",
+      "values": {
+        "revenue": 5298.0,
+        "cogs": 1928.6,
+        "gross_profit": 3369.4,
+        "other_income": 72.0,
+        "ebitda": 1352.6,
+        "pbt": 1239.0,
+        "tax_expense": 294.0,
+        "pat": 945.0,
+        "finance_costs": 18.0,
+        "dna": 175.0
+      }
+    },
+    {
+      "period": "Q2FY25",
+      "period_end": "2024-09-30",
+      "doc_id": "DOC13",
+      "values": {
+        "revenue": 5201.0,
+        "cogs": 1898.4,
+        "gross_profit": 3302.6,
+        "other_income": 69.0,
+        "ebitda": 1320.9,
+        "pbt": 1209.0,
+        "tax_expense": 287.0,
+        "pat": 922.0,
+        "finance_costs": 17.0,
+        "dna": 172.0
+      }
+    }
+  ],
+  "series": [
+    {
+      "entity": "CIPLA",
+      "metric_id": "us_rev_usd_yoy",
+      "unit": "pct",
+      "changepoint_period": "Q3FY26",
+      "points": [
+        {
+          "period": "Q2FY25",
+          "period_end": "2024-09-30",
+          "value": 0.021
+        },
+        {
+          "period": "Q3FY25",
+          "period_end": "2024-12-31",
+          "value": 0.018
+        },
+        {
+          "period": "Q4FY25",
+          "period_end": "2025-03-31",
+          "value": 0.025
+        },
+        {
+          "period": "Q1FY26",
+          "period_end": "2025-06-30",
+          "value": 0.019
+        },
+        {
+          "period": "Q2FY26",
+          "period_end": "2025-09-30",
+          "value": 0.031
+        },
+        {
+          "period": "Q3FY26",
+          "period_end": "2025-12-31",
+          "value": 0.058
+        },
+        {
+          "period": "Q4FY26",
+          "period_end": "2026-03-31",
+          "value": 0.071
+        },
+        {
+          "period": "Q1FY27",
+          "period_end": "2026-06-30",
+          "value": 0.084
+        }
+      ]
+    },
+    {
+      "entity": "CIPLA",
+      "metric_id": "gross_margin",
+      "unit": "pct",
+      "changepoint_period": "Q4FY26",
+      "points": [
+        {
+          "period": "Q2FY25",
+          "period_end": "2024-09-30",
+          "value": 0.635
+        },
+        {
+          "period": "Q3FY25",
+          "period_end": "2024-12-31",
+          "value": 0.636
+        },
+        {
+          "period": "Q4FY25",
+          "period_end": "2025-03-31",
+          "value": 0.635
+        },
+        {
+          "period": "Q1FY26",
+          "period_end": "2025-06-30",
+          "value": 0.637
+        },
+        {
+          "period": "Q2FY26",
+          "period_end": "2025-09-30",
+          "value": 0.636
+        },
+        {
+          "period": "Q3FY26",
+          "period_end": "2025-12-31",
+          "value": 0.633
+        },
+        {
+          "period": "Q4FY26",
+          "period_end": "2026-03-31",
+          "value": 0.621
+        },
+        {
+          "period": "Q1FY27",
+          "period_end": "2026-06-30",
+          "value": 0.612
+        }
+      ]
+    },
+    {
+      "entity": "SUNPHARMA",
+      "metric_id": "gross_margin",
+      "unit": "pct",
+      "points": [
+        {
+          "period": "Q4FY26",
+          "period_end": "2026-03-31",
+          "value": 0.682
+        },
+        {
+          "period": "Q1FY27",
+          "period_end": "2026-06-30",
+          "value": 0.679
+        }
+      ]
+    },
+    {
+      "entity": "DRREDDY",
+      "metric_id": "gross_margin",
+      "unit": "pct",
+      "points": [
+        {
+          "period": "Q4FY26",
+          "period_end": "2026-03-31",
+          "value": 0.701
+        },
+        {
+          "period": "Q1FY27",
+          "period_end": "2026-06-30",
+          "value": 0.699
+        }
+      ]
+    },
+    {
+      "entity": "LUPIN",
+      "metric_id": "gross_margin",
+      "unit": "pct",
+      "points": [
+        {
+          "period": "Q4FY26",
+          "period_end": "2026-03-31",
+          "value": 0.651
+        },
+        {
+          "period": "Q1FY27",
+          "period_end": "2026-06-30",
+          "value": 0.648
+        }
+      ]
+    }
+  ],
+  "peers": [
+    "SUNPHARMA",
+    "DRREDDY",
+    "LUPIN",
+    "AUROPHARMA"
+  ],
+  "stage_ms": {
+    "Discover": 1840,
+    "Connect": 41200,
+    "Calculate": 620,
+    "Reason": 38900,
+    "Challenge": 52100,
+    "Prove": 29400
+  }
+}

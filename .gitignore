@@ -1,0 +1,12 @@
+engine/.venv/
+engine/.cache/
+engine/data/*.sqlite
+engine/.env
+apps/web/.env.local
+apps/web/node_modules/
+apps/web/.next/
+engine/eval/out/raw/
+*.pyc
+__pycache__/
+.DS_Store
+qa-shots/

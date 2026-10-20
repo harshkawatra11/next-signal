@@ -1,0 +1,31 @@
+{
+  "title": "Cipla Ltd Gross Margin Analysis Shows Peer Alignment Across Examined Periods",
+  "abstract": "This research note evaluates the gross margin of Cipla Ltd, a pharmaceutical manufacturer listed on the National Stock Exchange of India, by comparing its financial metrics against 5 listed peers as of 20 October 2026. The primary finding indicates that the gross margin changepoint in Q3FY24 reflects cost pressures affecting the gross margin metric, but the company change was within 1.6 robust standard deviations of the peer median, which is too close to call company-specific. We examined 9 quarters of filed results, noting that revenue from operations in Q3 FY25 was Rs 7,073.0 crore compared to Rs 6,603.8 crore a year earlier in Q3 FY24. Additional context from Table 1 shows that revenue from operations rose from Rs 5,739.3 crore in Q4 FY23 to Rs 7,073.0 crore in Q3 FY25. The surviving explanation held against every check applied to its strongest rivals as detailed in Table 3. The analysis provides empirical grounding for understanding margin dynamics in the pharmaceutical sector.",
+  "introduction": [
+    "Cipla Ltd is a pharmaceutical manufacturer listed on the National Stock Exchange of India, as of 20 October 2026. This note focuses on gross margin, compared against 5 listed peers."
+  ],
+  "company_and_data": [
+    "Revenue from operations in Q3 FY25 was Rs 7,073.0 crore [1]. A year earlier, in Q3 FY24, it was Rs 6,603.8 crore [5]. We examined 9 quarters of filed results. Table 1 documents that revenue from operations rose from Rs 5,739.3 crore in Q4 FY23 to Rs 7,073.0 crore in Q3 FY25. Table 2 presents margins and revenue growth computed from Table 1. Figure 1 illustrates quarterly revenue and EBITDA from Q4 FY23 to Q3 FY25 in Rs crore. Figure 2 maps the sequence of dated events behind the finding."
+  ],
+  "findings": [
+    "The company's change was within 1.6 robust standard deviations of the peer median, which is too close to call company-specific. We observe that this metric governs the primary evaluation of peer performance regarding gross margin fluctuations during the observed timeframe."
+  ],
+  "explanations": [
+    "The gross margin changepoint in Q3FY24 reflects cost pressures affecting the gross margin metric. This explanation was rejected because the company's change was within 1.6 robust standard deviations of the peer median, which is too close to call company-specific. The change has held for 5 quarters against an earlier average of 64.3 per cent. Meanwhile, the net profit margin changepoint in Q1FY24 relates to profitability shifts captured by net profit margin, reaching a pat margin of 22.3 per cent in Q3FY25 with a pat margin peer z-score of z = 1.5 in Q3FY25, which is supported. The company moved 3.7 robust standard deviations away from the median of 4 peers, so the change is specific to it, holding for 7 quarters against an earlier average of 11.4 per cent. Table 3 records that the surviving explanation held against every check applied to its strongest rivals."
+  ],
+  "outlook": [
+    "The finding would be undermined if net profit margin falls to or below 0.0 per cent for 2 consecutive quarters. The next test is Cipla Ltd.'s next quarterly results, expected around 13 February 2027."
+  ],
+  "conclusion": [
+    "The empirical review demonstrates that Cipla Ltd exhibits gross margin movements closely aligned with its peer median. We conclude that further quarterly filings will determine whether the observed metrics shift outside the current robust standard deviation thresholds."
+  ],
+  "sources": {
+    "abstract": "gemini",
+    "introduction": "gemini",
+    "company_and_data": "gemini",
+    "findings": "gemini",
+    "explanations": "gemini",
+    "outlook": "gemini",
+    "conclusion": "gemini"
+  }
+}
